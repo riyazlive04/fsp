@@ -2,9 +2,30 @@
  * Site-wide configuration: URL, navigation and brand constants.
  *
  * Set NEXT_PUBLIC_SITE_URL in the deployment environment so canonical URLs,
- * the sitemap and Open Graph tags point at the production domain.
+ * the sitemap and Open Graph tags point at the production domain. On Vercel,
+ * the project's production domain is used automatically when it is not set.
+ * Blank values and values without a protocol are handled.
  */
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+function resolveSiteUrl(): string {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+  for (const raw of candidates) {
+    const value = raw?.trim();
+    if (!value) continue;
+    const withProtocol = /^https?:\/\//i.test(value) ? value : `https://${value}`;
+    try {
+      return new URL(withProtocol).origin;
+    } catch {
+      // Ignore malformed values and try the next candidate.
+    }
+  }
+  return "http://localhost:3000";
+}
+
+export const siteUrl = resolveSiteUrl();
 
 export const site = {
   name: "Facilitator Support Program",
@@ -23,7 +44,7 @@ export const site = {
     phone: null as string | null,
   },
   /** Endpoint that receives enquiry form submissions (JSON POST). */
-  formEndpoint: process.env.NEXT_PUBLIC_FSP_FORM_ENDPOINT ?? null,
+  formEndpoint: process.env.NEXT_PUBLIC_FSP_FORM_ENDPOINT?.trim() || null,
 } as const;
 
 export type NavLink = { label: string; href: string; description?: string };
