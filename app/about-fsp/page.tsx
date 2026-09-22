@@ -9,7 +9,6 @@ import { ScrollReveal } from "@/components/motion/ScrollReveal";
 import { ChapterNav } from "@/components/fsp/ChapterNav";
 import { EcosystemFlow } from "@/components/fsp/EcosystemFlow";
 import { AudienceCards } from "@/components/fsp/AudienceCards";
-import { FounderSection } from "@/components/fsp/FounderSection";
 import { FinalCTA } from "@/components/fsp/FinalCTA";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -164,7 +163,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <FounderSection />
       <FinalCTA />
     </>
   );

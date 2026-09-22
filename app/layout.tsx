@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import { Metadata, Viewport } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
 import { site, siteUrl } from "@/data/site";
@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/motion/SmoothScroll";
 import { RevealObserver } from "@/components/motion/RevealObserver";
+import { Jarvis } from "@/components/fsp/Jarvis";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -71,6 +72,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Footer />
         <SmoothScroll />
         <RevealObserver />
+        <Jarvis />
       </body>
     </html>
   );

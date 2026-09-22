@@ -16,7 +16,7 @@ export function FounderSection({ index, showCredentials = true, headingLevel = "
             as={headingLevel}
             id="founder-title"
             lines={["Karunai", "Prakash"]}
-            className="font-display text-[clamp(3.5rem,11vw,9rem)]"
+            className="font-display text-[clamp(3rem,7vw,9rem)]"
           />
           <ul className="mt-8 flex flex-wrap gap-2">
             {founder.roles.map((role) => (
