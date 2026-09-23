@@ -13,7 +13,7 @@
 
 ### Hero Section
 
-**Become a Better Facilitator. Build Your Brand. Create More Impact.**
+**Become a Facilitator. Build Your Brand. Create More Impact.**
 
 Facilitator Support Program (FSP) is a practical learning and growth
 ecosystem for trainers, facilitators and aspiring facilitators who want

@@ -4,7 +4,7 @@
  */
 
 export const hero = {
-  headline: ["Become a", "better", "facilitator."],
+  headline: ["Become a", "facilitator."],
   support: ["Build your facilitation skills.", "Build your brand.", "Create more impact."],
   programName: "Facilitator Support Program",
   tagline: ["Learn.", "Lead.", "Impact."],
